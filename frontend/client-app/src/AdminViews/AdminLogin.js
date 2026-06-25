@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { FaUser, FaTruck, FaCheckCircle, FaTimesCircle, FaEye, FaArrowLeft } from "react-icons/fa";
 
@@ -12,7 +12,6 @@ function AdminLogin() {
   const [customers, setCustomers] = useState([]);
   const [vendors, setVendors] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [view, setView] = useState(null);
   const [selectedItem, setSelectedItem] = useState(null);
 
   const handleLogin = async () => {
