@@ -1,0 +1,176 @@
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 15px rgba(168, 85, 247, 0.1); }
+  50% { box-shadow: 0 0 30px rgba(168, 85, 247, 0.2); }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.customer-products-wrapper {
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+.customer-products-wrapper h2 {
+  text-align: center;
+  margin-bottom: 24px;
+  background: linear-gradient(135deg, #c084fc, #2dd4bf);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.cart-bar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(168, 85, 247, 0.12);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  color: var(--color-text);
+  padding: 14px 22px;
+  border-radius: var(--radius-lg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(168, 85, 247, 0.2);
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+.cart-bar .btn-primary {
+  background: var(--color-primary);
+}
+
+.cart-bar .btn-primary:hover {
+  background: var(--color-primary-light);
+  box-shadow: 0 0 35px rgba(168, 85, 247, 0.4);
+}
+
+.grid-products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.product-grid-item {
+  border-radius: var(--radius-lg);
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all var(--transition-base);
+  display: flex;
+  flex-direction: column;
+  animation: slide-up 0.5s ease both;
+  position: relative;
+  overflow: hidden;
+}
+
+.product-grid-item:nth-child(1) { animation-delay: 0s; }
+.product-grid-item:nth-child(2) { animation-delay: 0.05s; }
+.product-grid-item:nth-child(3) { animation-delay: 0.1s; }
+.product-grid-item:nth-child(4) { animation-delay: 0.15s; }
+.product-grid-item:nth-child(5) { animation-delay: 0.2s; }
+.product-grid-item:nth-child(6) { animation-delay: 0.25s; }
+.product-grid-item:nth-child(7) { animation-delay: 0.3s; }
+.product-grid-item:nth-child(8) { animation-delay: 0.35s; }
+
+.product-grid-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.05), transparent);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.product-grid-item:hover::before {
+  opacity: 1;
+}
+
+.product-grid-item:hover {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  transform: translateY(-4px);
+  border-color: rgba(168, 85, 247, 0.3);
+}
+
+.product-grid-item.selected {
+  border: 2px solid #c084fc;
+  box-shadow: 0 0 30px rgba(168, 85, 247, 0.25);
+  background: rgba(168, 85, 247, 0.08);
+}
+
+.product-grid-item img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  margin-bottom: 12px;
+  transition: transform var(--transition-base);
+}
+
+.product-grid-item:hover img {
+  transform: scale(1.03);
+}
+
+.product-grid-item h3 {
+  margin: 0 0 8px;
+  color: #c084fc;
+  font-size: var(--font-size-base);
+}
+
+.product-grid-item p {
+  margin: 0 0 6px;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.product-grid-item .product-desc {
+  color: var(--color-text-muted);
+  font-size: 13px;
+}
+
+.product-grid-item .price-tag {
+  margin: 0 0 12px;
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  background: linear-gradient(135deg, #fbbf24, #f472b6);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.product-grid-item .btn {
+  position: relative;
+  z-index: 1;
+}
+
+.product-grid-item .btn-primary {
+  background: var(--color-primary);
+}
+
+.product-grid-item .btn-primary:hover {
+  background: var(--color-primary-light);
+}
+
+@media (max-width: 600px) {
+  .customer-products-wrapper {
+    padding: 0 12px;
+  }
+
+  .cart-bar {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+
+  .grid-products {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 12px;
+  }
+}

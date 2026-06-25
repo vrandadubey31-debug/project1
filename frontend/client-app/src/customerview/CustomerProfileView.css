@@ -1,0 +1,62 @@
+.profile-view-container {
+  background: transparent;
+  position: relative;
+}
+
+.profile-view-container::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse at 50% 30%, rgba(96, 165, 250, 0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at 20% 80%, rgba(244, 114, 182, 0.06) 0%, transparent 50%);
+}
+
+.profile-view-card {
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+}
+
+.profile-view-card h1 {
+  background: linear-gradient(135deg, #60a5fa, #a78bfa);
+  -webkit-background-clip: text;
+  background-clip: text;
+  margin-bottom: 20px;
+  font-size: 26px;
+}
+
+.profile-view-card .profile-pic {
+  border-color: #60a5fa;
+  box-shadow: 0 0 30px rgba(96, 165, 250, 0.3);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.profile-view-card .profile-pic:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 45px rgba(96, 165, 250, 0.5);
+}
+
+.profile-view-card .profile-pic-placeholder {
+  background: linear-gradient(135deg, #60a5fa, #a78bfa);
+  box-shadow: 0 0 30px rgba(96, 165, 250, 0.3);
+}
+
+.profile-view-card .details-card {
+  background: rgba(96, 165, 250, 0.04);
+  border: 1px solid rgba(96, 165, 250, 0.12);
+}
+
+.profile-view-card .details-card strong {
+  color: #60a5fa;
+}
+
+.profile-view-card .btn-primary {
+  background: var(--color-primary);
+}
+
+.profile-view-card .btn-primary:hover {
+  background: var(--color-primary-light);
+  box-shadow: 0 4px 24px rgba(168, 85, 247, 0.4);
+}

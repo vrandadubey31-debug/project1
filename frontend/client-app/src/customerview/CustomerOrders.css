@@ -1,0 +1,93 @@
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.customer-order-card {
+  border: 1px solid rgba(251, 191, 36, 0.15);
+  border-radius: var(--radius-lg);
+  padding: 18px;
+  margin-bottom: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  animation: fade-in-up 0.5s ease both;
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.customer-order-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.03), transparent);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.customer-order-card:hover::before {
+  opacity: 1;
+}
+
+.customer-order-card:hover {
+  border-color: rgba(251, 191, 36, 0.3);
+  transform: translateX(4px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.customer-order-card:nth-child(1) { animation-delay: 0s; }
+.customer-order-card:nth-child(2) { animation-delay: 0.08s; }
+.customer-order-card:nth-child(3) { animation-delay: 0.16s; }
+.customer-order-card:nth-child(4) { animation-delay: 0.24s; }
+.customer-order-card:nth-child(5) { animation-delay: 0.32s; }
+
+.customer-order-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  color: #fbbf24;
+  font-weight: 600;
+}
+
+.customer-order-header strong:first-child {
+  font-size: var(--font-size-sm);
+  opacity: 0.7;
+  color: var(--color-text-muted);
+}
+
+.customer-order-status {
+  display: flex;
+  justify-content: space-between;
+  color: var(--color-text-muted);
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.customer-order-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+  color: var(--color-text);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.customer-order-item:last-of-type {
+  border-bottom: none;
+}
+
+.customer-order-total {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 16px;
+  color: #2dd4bf;
+  padding-top: 6px;
+}
+
+.customer-order-card hr {
+  margin: 8px 0;
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
