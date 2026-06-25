@@ -10,15 +10,7 @@ const mongoose = require("mongoose");
 
 const app = express();
 
-// ===============================
-// Database Config
-// ===============================
-
 const config = require("./DB");
-
-// ===============================
-// Routes
-// ===============================
 
 const stateRoute = require("./admin/state.route");
 const cityRoute = require("./admin/city.route");
@@ -28,10 +20,6 @@ const vendorRoute = require("./vendor/vendor.route");
 const customerRoute = require("./customer/customer.route");
 const invoiceRoute = require("./invoice/invoice.route");
 const adminRoute = require("./admin/admin.route");
-
-// ===============================
-// Middleware
-// ===============================
 
 app.use(cors());
 
@@ -48,10 +36,6 @@ app.use(
   })
 );
 
-// ===============================
-// API Routes
-// ===============================
-
 app.use("/state", stateRoute);
 app.use("/city", cityRoute);
 app.use("/productcatg", productCatgRoute);
@@ -61,29 +45,17 @@ app.use("/customer", customerRoute);
 app.use("/invoice", invoiceRoute);
 app.use("/admin", adminRoute);
 
-// ===============================
-// Test Route
-// ===============================
-
 app.get("/", (req, res) => {
   res.send("Vendor API Running Successfully");
 });
 
-// ===============================
-// MongoDB Connection
-// ===============================
-
 mongoose
   .connect(config.URL)
   .then(() => {
-    console.log(
-      "✅ MongoDB Connected Successfully"
-    );
+    console.log("MongoDB Connected Successfully");
   })
   .catch((err) => {
-    console.log(
-      "❌ MongoDB Connection Error"
-    );
+    console.log("MongoDB Connection Error");
     console.log(err);
   });
 

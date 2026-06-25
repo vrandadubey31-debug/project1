@@ -1,4 +1,4 @@
-const app = require("./vercel");
+const app = require("./api");
 
 const PORT = process.env.PORT || 9191;
 
